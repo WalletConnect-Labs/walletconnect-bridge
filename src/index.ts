@@ -1,7 +1,31 @@
+import http from 'http'
 import WebSocket from 'ws'
+import pkg from '../package.json'
 
-const port = Number(process.env.PORT) || 5000
-const wsServer = new WebSocket.Server({ port })
+const server = http.createServer(function (req, res) {
+  const pathname = req.url
+
+  switch (pathname) {
+    case '/hello':
+      res.writeHead(200, { 'Content-Type': 'text/plain' })
+      res.end(`Hello World, this is WalletConnect v${pkg.version}`)
+      break
+    case '/info':
+      res.writeHead(200, { 'Content-Type': 'application/json' })
+      res.end(
+        JSON.stringify({
+          name: 'WalletConnect Bridge Server',
+          repository: 'walletconnect-bridge',
+          version: pkg.version
+        })
+      )
+      break
+    default:
+      break
+  }
+})
+
+const wsServer = new WebSocket.Server({ server })
 
 interface ISocketMessage {
   topic: string
@@ -84,4 +108,11 @@ wsServer.on('connection', (socket: WebSocket) => {
   })
 })
 
-console.log('WebSocket server running on port', port)
+const port = Number(process.env.PORT) || 5000
+server.listen(port, (error: Error) => {
+  if (error) {
+    return console.log('Something went wrong', error)
+  }
+
+  console.log('Server listening on port', port)
+})
