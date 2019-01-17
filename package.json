@@ -2,6 +2,15 @@
   "name": "walletconnect-bridge",
   "version": "1.0.0-beta",
   "private": true,
+  "keywords": [
+    "walletconnect",
+    "ethereum",
+    "web3",
+    "crypto"
+  ],
+  "author": "WalletConnect <walletconnect.org>",
+  "homepage": "https://walletconnect.org",
+  "license": "LGPL-3.0",
   "dependencies": {
     "ws": "^6.1.2"
   },
@@ -10,6 +19,13 @@
     "build": "babel ./src --extensions '.ts' --out-dir build",
     "test": "mocha --require ./babel-polyfill.js test/**/*.spec.ts",
     "start": "node build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walletconnect/walletconnect-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/walletconnect/walletconnect-bridge/issues"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
