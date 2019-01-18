@@ -1,5 +1,0 @@
-{
-  "name": "walletconnect-bridge",
-  "version": 2,
-  "builds": [{ "src": "build/index.js", "use": "@now/node@canary" }]
-}
