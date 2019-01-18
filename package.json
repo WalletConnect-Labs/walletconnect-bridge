@@ -18,7 +18,8 @@
     "dev": "babel-node --extensions '.ts' src/index.ts",
     "build": "babel ./src --extensions '.ts' --out-dir build",
     "test": "mocha --require ./babel-polyfill.js test/**/*.spec.ts",
-    "start": "node build"
+    "start": "node build",
+    "now-build": "yarn build"
   },
   "repository": {
     "type": "git",

@@ -1,9 +1,5 @@
 {
   "name": "walletconnect-bridge",
   "version": 2,
-  "builds": [{ "src": "src/*", "use": "@now/node@canary" }],
-  "routes": [
-    { "src": "/.*", "dest": "src/index.ts" } 
-  ],
-  "public": false
+  "builds": [{ "src": "build/index.js", "use": "@now/node@canary" }],
 }
