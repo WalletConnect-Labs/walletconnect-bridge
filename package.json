@@ -1,5 +1,6 @@
 {
   "name": "walletconnect-bridge",
+  "description": "WalletConnect Bridge Server",
   "version": "1.0.0-beta",
   "private": true,
   "keywords": [
