@@ -1,4 +1,4 @@
-# WalletConnect Bridge
+# WalletConnect Bridge Server
 
 ## Develop
 
