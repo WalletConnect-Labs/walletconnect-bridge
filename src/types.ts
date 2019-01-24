@@ -10,3 +10,8 @@ export interface ISocketSub {
   topic: string
   socket: WebSocket
 }
+
+export interface INotification {
+  topic: string
+  webhook: string
+}

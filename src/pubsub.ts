@@ -1,5 +1,6 @@
 import WebSocket from 'ws'
 import { ISocketMessage, ISocketSub } from './types'
+import { getNotification } from './notification'
 
 const subs: ISocketSub[] = []
 const pubs: ISocketMessage[] = []
@@ -58,10 +59,15 @@ export default (socket: WebSocket, data: WebSocket.Data) => {
 
       console.log('IN  =>', socketMessage)
 
-      if (socketMessage.type === 'sub') {
-        SubController(socket, socketMessage)
-      } else if (socketMessage.type === 'pub') {
-        PubController(socketMessage)
+      switch (socketMessage.type) {
+        case 'sub':
+          SubController(socket, socketMessage)
+          break
+        case 'pub':
+          PubController(socketMessage)
+          break
+        default:
+          break
       }
     } catch (e) {
       console.error(e)
